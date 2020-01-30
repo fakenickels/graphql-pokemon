@@ -16,19 +16,19 @@ type Pokemon {
   id: ID!
 
   # The identifier of this Pokémon
-  number: String
+  number: String!
 
   # The name of this Pokémon
-  name: String
+  name: String!
 
   # The minimum and maximum weight of this Pokémon
-  weight: PokemonDimension
+  weight: PokemonDimension!
 
   # The minimum and maximum weight of this Pokémon
-  height: PokemonDimension
+  height: PokemonDimension!
 
   # The classification of this Pokémon
-  classification: String
+  classification: String!
 
   # The type(s) of this Pokémon
   types: [String]
@@ -87,6 +87,6 @@ type PokemonEvolutionRequirement {
 # Query any Pokémon by number or name
 type Query {
   query: Query
-  pokemons(first: Int!): [Pokemon]
+  pokemons(first: Int!): [Pokemon!]
   pokemon(id: String, name: String): Pokemon
 }

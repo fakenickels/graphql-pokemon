@@ -27,7 +27,7 @@ const QueryType = new GraphQLObjectType({
       resolve: (...args) => args,
     },
     pokemons: {
-      type: new GraphQLList(PokemonType),
+      type: new GraphQLList(new GraphQLNonNull(PokemonType)),
       args: {
         first: {
           type: new GraphQLNonNull(GraphQLInt),

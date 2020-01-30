@@ -4,6 +4,7 @@ import {
   GraphQLInt,
   GraphQLFloat,
   GraphQLList,
+  GraphQLNonNull,
 } from 'graphql';
 import {
   globalIdField,
@@ -21,27 +22,27 @@ const PokemonType = new GraphQLObjectType({
   fields: () => ({
     id: globalIdField('Pokemon'),
     number: {
-      type: GraphQLString,
+      type: new GraphQLNonNull(GraphQLString),
       description: 'The identifier of this Pokémon',
       resolve: obj => `00${obj.id}`.slice(-3),
     },
     name: {
-      type: GraphQLString,
+      type: new GraphQLNonNull(GraphQLString),
       description: 'The name of this Pokémon',
       resolve: obj => obj.name,
     },
     weight: {
-      type: PokemonDimensionType,
+      type: new GraphQLNonNull(PokemonDimensionType),
       description: 'The minimum and maximum weight of this Pokémon',
       resolve: obj => obj.weight,
     },
     height: {
-      type: PokemonDimensionType,
+      type: new GraphQLNonNull(PokemonDimensionType),
       description: 'The minimum and maximum weight of this Pokémon',
       resolve: obj => obj.height,
     },
     classification: {
-      type: GraphQLString,
+      type: new GraphQLNonNull(GraphQLString),
       description: 'The classification of this Pokémon',
       resolve: obj => obj.classification,
     },
